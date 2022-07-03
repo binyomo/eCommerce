@@ -42,12 +42,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // 
+        // Check Auth
+        // 
         if (!Auth::check()) {
             return redirect('/user/login')->with('success', 'Login Terlebih Dahulu');
         }
 
-        $product = Product::where('id', $request->id)->first();
+        
 
+        // 
+        // Buat Order Baru Jika Tidak Ada Order Dalam Status 0 Pada User Target
+        // 
         $cek_order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
         if(empty($cek_order)){
             $order = new Order;
@@ -58,8 +64,14 @@ class ProductController extends Controller
             $order->save();
         }
 
+        // 
+        // Buat OrderDetail 
+        // 
+        $product = Product::where('id', $request->id)->first();
+
         $add_order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
         $cek_orderdetail = OrderDetail::where('product_id', $product->id)->where('order_id', $add_order->id)->first();
+        // Buat DetailOrder Baru Jika Tidak Ada Yang Sama
         if(empty($cek_orderdetail)){
             $order_detail = new OrderDetail;
             $order_detail->product_id = $product->id;
@@ -75,7 +87,11 @@ class ProductController extends Controller
             $order_detail->jumlah_harga = $order_detail->jumlah_harga+$new_harga;
             $order_detail->update(); 
         }
+        // Jika Tidak Ada OrderDetail Yang Sama (atas ^)
 
+        // 
+        // Update Harga Order
+        // 
         $order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
         $order->jumlah_harga = $order->jumlah_harga+$product->harga*$request->jumlah;
         $order->update();

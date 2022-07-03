@@ -12,7 +12,7 @@
 		<div class="col-md-6">
 			<div class="p-5 bg-dark">
 				<h3>Cart</h3>
-				<a href="" class="text-decoration-none text-light">Click <strong>Here</strong> For More</a>
+				<a href="/cart" class="text-decoration-none text-light">Click <strong>Here</strong> For More</a>
 			</div>
 		</div>
 	</div>

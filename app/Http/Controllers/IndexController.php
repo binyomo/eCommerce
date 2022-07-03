@@ -17,16 +17,19 @@ class IndexController extends Controller
 
     public function cart()
     {
-        $order_detail = [  ];
+        $order_detail = [];
+        $order = [];
         if (Auth::check()) {
             $order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
             if (!empty($order)) {
                 $order_detail = OrderDetail::where('order_id', $order->id)->get();
-            }   
+
+            }
         }
 
     	return view('cart', [ 
-    		'orderDetails' => $order_detail
+    		'orderDetails' => $order_detail,
+            'order' => $order
     	]);
     }
 

@@ -35,7 +35,11 @@
                     </ul>
                     <a href="/user" class="btn btn-outline-dark mx-1" type="submit">
                         <i class="fas fa-user me-1"></i>
-                        User
+                        @if(Auth::check())
+                        	{{ auth()->user()->username }}
+                        @else
+                        	User
+                        @endif
                     </a>
                     <a href="/cart" class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
