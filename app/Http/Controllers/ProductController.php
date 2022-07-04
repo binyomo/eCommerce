@@ -49,8 +49,6 @@ class ProductController extends Controller
             return redirect('/user/login')->with('success', 'Login Terlebih Dahulu');
         }
 
-        
-
         // 
         // Buat Order Baru Jika Tidak Ada Order Dalam Status 0 Pada User Target
         // 
@@ -67,10 +65,10 @@ class ProductController extends Controller
         // 
         // Buat OrderDetail 
         // 
-        $product = Product::where('id', $request->id)->first();
-
         $add_order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
+        $product = Product::where('id', $request->id)->first();
         $cek_orderdetail = OrderDetail::where('product_id', $product->id)->where('order_id', $add_order->id)->first();
+
         // Buat DetailOrder Baru Jika Tidak Ada Yang Sama
         if(empty($cek_orderdetail)){
             $order_detail = new OrderDetail;

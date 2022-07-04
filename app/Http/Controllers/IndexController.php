@@ -23,7 +23,6 @@ class IndexController extends Controller
             $order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
             if (!empty($order)) {
                 $order_detail = OrderDetail::where('order_id', $order->id)->get();
-
             }
         }
 
@@ -33,4 +32,20 @@ class IndexController extends Controller
     	]);
     }
 
+    public function cart_out(Request $request)
+    {
+        $order['status'] = $request->status;
+        Order::where('id', $request->id)->update($order);
+
+        return redirect('/cart')->with('success', 'Checkout Berhasil');
+    }
+
+    public function history()
+    {
+        $order = Order::where('user_id', auth()->user()->id)->where('status', 1)->get();
+        
+        return view('history', [
+            'orders' => $order
+        ]);        
+    }
 }

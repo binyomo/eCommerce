@@ -6,7 +6,7 @@
 		<div class="col-md-6 pb-lg-0 pb-3">
 			<div class="p-5 bg-dark">
 				<h3>History</h3>
-				<a href="" class="text-decoration-none text-light">Click <strong>Here</strong> For More</a>
+				<a href="/history" class="text-decoration-none text-light">Click <strong>Here</strong> For More</a>
 			</div>
 		</div>
 		<div class="col-md-6">

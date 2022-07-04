@@ -3,6 +3,7 @@
 @section('container')
 
 	<div class="container my-5">
+		<h1 class="py-3">Cart</h1>
 		@if($orderDetails)
 			@foreach($orderDetails as $orderDetail)
 			<div class="col-12 bg-light p-5 border mb-2">
@@ -26,9 +27,12 @@
 						<h3 class="mb-0">Tagihan Belanja</h3>
 						<p>Jumlah : {{ $order->jumlah_harga }}.000</p>
 					</div>
-					<div class="col-md-6 mb-0">
-						<button class="btn btn-light col-12">Checkout</button>
-					</div>
+					<form method="post" action="/cart" class="col-md-6 mb-0" id="actform">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $order->id }}">
+                        <input type="hidden" name="status" value="1">
+                        <button type="submit" class="fas py-2 fa-calendar-times col-12" onclick="return confirm('Check Out Sekarang')">Checkout</button>
+                    </form>
 				</div>
 			</div>
 		@else

@@ -30,5 +30,7 @@ Route::post('/user/register', [UserController::class, 'create']);
 Route::post('/user/logout', [UserController::class, 'logout']);
 
 Route::group(['middleware' => ['auth']], function () {
-	Route::get('/user', [UserController::class, 'index']);	
+	Route::get('/user', [UserController::class, 'index']);
+	Route::post('/cart', [IndexController::class, 'cart_out']);
+	Route::get('/history', [IndexController::class, 'history']);
 });
