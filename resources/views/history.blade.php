@@ -5,7 +5,7 @@
 	<div class="container my-5">
 		<h1 class="py-3">History</h1>
 
-		@if($orders)
+		@if($orders->count())
 			@foreach($orders as $order)
 			<div class="col-12 bg-light p-5 border mb-2">
 				<div class="row">
@@ -21,7 +21,7 @@
 			@endforeach
 		@else
 			<div class="text-center">
-				<h1>Belom Ada History</h1>
+				<h1>Ayo Mulai Belanja</h1>
 			</div>
 		@endif
 
