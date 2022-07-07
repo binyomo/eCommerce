@@ -19,8 +19,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [IndexController::class, 'index']);
 
-Route::resource('/product', ProductController::class);
 Route::get('/cart', [IndexController::class, 'cart']);
+Route::get('/product', [IndexController::class, 'product']);
+Route::get('/product/{id}', [IndexController::class, 'productDetail']);
+Route::post('/product', [IndexController::class, 'productTambah']);
 
 Route::get('/user/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::get('/user/register', [UserController::class, 'register']);
@@ -33,4 +35,5 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/user', [UserController::class, 'index']);
 	Route::post('/cart', [IndexController::class, 'cart_out']);
 	Route::get('/history', [IndexController::class, 'history']);
+	Route::get('/history/{id}', [IndexController::class, 'historyDetail']);
 });

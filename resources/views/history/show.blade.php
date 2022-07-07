@@ -3,8 +3,8 @@
 @section('container')
 
 	<div class="container my-5">
-		<h1 class="py-3">Cart</h1>
-		@if($orderDetails)
+		<h1 class="py-3">Detail History</h1>
+		
 			@foreach($orderDetails as $orderDetail)
 			<div class="col-12 bg-light p-5 border mb-2">
 				<div class="row">
@@ -27,19 +27,12 @@
 						<h3 class="mb-0">Tagihan Belanja</h3>
 						<p>Jumlah : {{ $order->jumlah_harga }}.000</p>
 					</div>
-					<form method="post" action="/cart" class="col-md-6 mb-0" id="actform">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $order->id }}">
-                        <input type="hidden" name="status" value="1">
-                        <button type="submit" class="py-2 col-12" onclick="return confirm('Check Out Sekarang')">Checkout</button>
-                    </form>
+					<div class="col-md-6">
+						<a href="/history" class="btn btn-light py-2 col-12">Kembali</a>	
+						<p class="text-muted mb-0">Order : {{ $order->created_at->diffForHumans() }}</p>
+					</div>
 				</div>
 			</div>
-		@else
-			<div class="text-center">
-				<h1>Ayo Mulai Belanja</h1>
-			</div>
-		@endif
 
 	</div>
 
