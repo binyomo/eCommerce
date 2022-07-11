@@ -6,35 +6,31 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\User;
+use App\Models\Mitra;
 
-class UserController extends Controller
+class MitraController extends Controller
 {
     public function index()
     {
-        if (!Auth::guard('web')->check()) {
-            return redirect('/user/login')->with('success', 'Login Dulu');
-        }
-
-    	return view('user.index', [
+    	return view('mitra.index', [
     		
     	]);
     }
 
     public function login()
     {
-    	return view('user.login.login', [
+    	return view('mitra.login.login', [
     		
     	]);
     }
 
     public function register()
     {
-        if (Auth::guard('web')->check()) {
-            return redirect('/user')->with('success', 'Sudah Login');
+        if (Auth::guard('mitra')->check()) {
+            return redirect('/mitra')->with('success', 'Sudah Login');
         }
 
-    	return view('user.login.register', [
+    	return view('mitra.login.register', [
     		
     	]);
     }
@@ -48,9 +44,9 @@ class UserController extends Controller
 
         $remember = $request->get('remember');
 
-        if(Auth::guard('web')->attempt($credentials, $remember)){
-            $request->session()->put('user');
-            return redirect()->intended('/user')->with('success', 'Login Berhasil!, Hai!!!');
+        if(Auth::guard('mitra')->attempt($credentials, $remember)){
+            $request->session()->put('mitra');
+            return redirect()->intended('/mitra')->with('success', 'Login Berhasil!, Hai!!!');
         }
 
         return back()->with('loginError', 'Login Failed');
@@ -60,22 +56,22 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
         	'email' => 'required|email',
-            'username' => 'required|unique:users',
+            'username' => 'required|unique:mitras',
             'password' => 'required'
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
+        Mitra::create($validatedData);
 
-        return redirect('/user/login')->with('success', 'Tambah User Berhasil!');
+        return redirect('/mitra/login')->with('success', 'Tambah Mitra Berhasil!');
     }
 
     public function logout(Request $request) 
     {
         Auth::logout();
 
-        $request->session()->forget('user');
+        $request->session()->forget('mitra');
 
         $request->session()->regenerateToken();     
 

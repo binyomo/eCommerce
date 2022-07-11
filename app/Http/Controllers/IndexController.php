@@ -31,13 +31,13 @@ class IndexController extends Controller
             }
         }
 
-    	return view('cart', [ 
+    	return view('user.cart.index', [ 
     		'orderDetails' => $order_detail,
             'order' => $order
     	]);
     }
 
-    public function cart_out(Request $request)
+    public function cartOut(Request $request)
     {
         $order['status'] = $request->status;
         Order::where('id', $request->id)->update($order);
@@ -126,7 +126,7 @@ class IndexController extends Controller
     public function history(){
         $order = Order::where('user_id', auth()->user()->id)->where('status', 1)->get();
         
-        return view('history.index', [
+        return view('user.history.index', [
             'orders' => $order
         ]);
     }
@@ -135,7 +135,7 @@ class IndexController extends Controller
         $order = Order::where('id', $id)->first();
         $order_detail = OrderDetail::where('order_id', $order->id)->get();
 
-        return view('history.show', [
+        return view('user.history.show', [
             'order' => $order,
             'orderDetails' => $order_detail
         ]);

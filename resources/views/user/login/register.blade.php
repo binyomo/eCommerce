@@ -1,4 +1,4 @@
-@extends('/user/auth')
+@extends('/user/login/auth')
 
 @section('container')
   <form class="login100-form validate-form" method="post" action="/user/register">
@@ -40,14 +40,19 @@
     </div>
 
     <div class="container-login100-form-btn">
-      <button class="login100-form-btn">
+      <button class="btn btn-primary col-12 py-2">
       Register
       </button>
+    </div>
+    <div class="py-1">
+      <a href="/user/login" class="btn btn-success col-12 py-2">
+        Have Account? Login..
+      </a>
     </div>
               
     <div class="text-center p-t-46 p-b-20">
       <span class="txt2">
-        Have a acc? <a href="/user/login" class="text-decoration-none text-primary">Login</a>
+        Back to <a href="/" class="text-decoration-none text-primary">Home</a>
       </span>
     </div>
   </form>

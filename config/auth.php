@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'mitra' => [
+            'driver' => 'session',
+            'provider' => 'mitras',
+        ],
     ],
 
     /*
@@ -65,10 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'mitras' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mitra::class,
+        ],
     ],
 
     /*
