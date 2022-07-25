@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-6 mb-xl-0 mb-5">
 				<h1>{{ $product->nama }}</h1>
-				<h3>{{ $product->harga }}0</h3>
+				<h3>@currency($product->harga)</h3>
 			</div>
 			<div class="col-md-6">
 				<h4>Pesan Barang :</h4>

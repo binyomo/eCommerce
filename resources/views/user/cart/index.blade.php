@@ -10,12 +10,12 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h3 class="mb-0">{{ $orderDetail->product->nama }}</h3>
-						<h4>{{ $orderDetail->product->harga }}0</h4>
+						<h4>@currency($orderDetail->product->harga)</h4>
 						<p>Jumlah : {{ $orderDetail->jumlah }}pcs</p>
 					</div>
 					<div class="col-md-6">
 						<p class="mb-0">Jumlah Harga :</p>
-						<h1>{{ $orderDetail->jumlah_harga }}.000</h1>
+						<h1>@currency($orderDetail->jumlah_harga)</h1>
 					</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h3 class="mb-0">Tagihan Belanja</h3>
-						<p>Jumlah : {{ $order->jumlah_harga }}.000</p>
+						<p>Jumlah : @currency($order->jumlah_harga)</p>
 					</div>
 					<form method="post" action="/cart" class="col-md-6 mb-0" id="actform">
                         @csrf

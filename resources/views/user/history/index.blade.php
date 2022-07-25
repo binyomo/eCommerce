@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h1>Total Harga:</h1>
-						<h3>{{ $order->jumlah_harga }}.000</h3>
+						<h3>@currency($order->jumlah_harga)</h3>
 						<p>No Order: <strong>{{ $order->code }}</strong></p>
 					</div>
 					<div class="col-md-6">

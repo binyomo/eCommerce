@@ -16,7 +16,7 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">{{ $product->nama }}</h5>
                                 <!-- Product price-->
-                                Rp {{ $product->harga }}0
+                                @currency($product->harga)
                             </div>
                         </div>
                         <!-- Product actions-->

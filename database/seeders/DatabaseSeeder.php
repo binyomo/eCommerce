@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'nama' => 'Meja',
-            'harga' => '10.0000'
+            'harga' => '10000'
         ]);
 
         Product::create([
             'nama' => 'Kasur',
-            'harga' => '30.0000'
+            'harga' => '30000'
         ]);
 
     }
