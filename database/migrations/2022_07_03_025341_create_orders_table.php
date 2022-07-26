@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('code');
             $table->integer('status');
             $table->integer('user_id');
-            $table->integer('jumlah_harga');
+            $table->integer('grand_price');
             $table->timestamps();
         });
     }

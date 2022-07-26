@@ -14,9 +14,9 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">{{ $product->nama }}</h5>
+                                <h5 class="fw-bolder">{{ $product->name }}</h5>
                                 <!-- Product price-->
-                                @currency($product->harga)
+                                @currency($product->price)
                             </div>
                         </div>
                         <!-- Product actions-->

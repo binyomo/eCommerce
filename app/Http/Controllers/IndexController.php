@@ -75,13 +75,13 @@ class IndexController extends Controller
         // 
         // Buat Order Baru Jika Tidak Ada Order Dalam Status 0 Pada User Target
         // 
-        $cek_order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
-        if(empty($cek_order)){
+        $check_order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
+        if(empty($check_order)){
             $order = new Order;
             $order->code = Str::random(8);
             $order->status = 0;
             $order->user_id = auth()->user()->id;
-            $order->jumlah_harga = 0;
+            $order->grand_price = 0;
             $order->save();
         }
 
@@ -90,22 +90,22 @@ class IndexController extends Controller
         // 
         $add_order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
         $product = Product::where('id', $request->id)->first();
-        $cek_orderdetail = OrderDetail::where('product_id', $product->id)->where('order_id', $add_order->id)->first();
+        $check_orderdetail = OrderDetail::where('product_id', $product->id)->where('order_id', $add_order->id)->first();
 
         // Buat DetailOrder Baru Jika Tidak Ada Yang Sama
-        if(empty($cek_orderdetail)){
+        if(empty($check_orderdetail)){
             $order_detail = new OrderDetail;
             $order_detail->product_id = $product->id;
             $order_detail->order_id = $add_order->id;
-            $order_detail->jumlah = $request->jumlah;
-            $order_detail->jumlah_harga = $product->harga*$request->jumlah;
+            $order_detail->amount = $request->amount;
+            $order_detail->product_grand_price = $product->price*$request->amount;
             $order_detail->save();
         }else{
             $order_detail = OrderDetail::where('product_id', $product->id)->where('order_id', $add_order->id)->first();
-            $order_detail->jumlah = $order_detail->jumlah+$request->jumlah;
+            $order_detail->amount = $order_detail->amount+$request->amount;
 
-            $new_harga = $product->harga*$request->jumlah;
-            $order_detail->jumlah_harga = $order_detail->jumlah_harga+$new_harga;
+            $new_price = $product->price*$request->amount;
+            $order_detail->product_grand_price = $order_detail->product_grand_price+$new_price;
             $order_detail->update(); 
         }
         // Jika Tidak Ada OrderDetail Yang Sama (atas ^)
@@ -114,7 +114,7 @@ class IndexController extends Controller
         // Update Harga Order
         // 
         $order = Order::where('user_id', auth()->user()->id)->where('status', 0)->first();
-        $order->jumlah_harga = $order->jumlah_harga+$product->harga*$request->jumlah;
+        $order->grand_price = $order->grand_price+$product->price*$request->amount;
         $order->update();
 
         return redirect('/product')->with('success', 'Tambah Order Berhasil!');
