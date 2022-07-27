@@ -32,7 +32,7 @@
 			<div class="container">
 				<div class="row align-content-center">
 					<div class="col-6 col-md-4 order-2 order-md-1">
-						<form class="row g-0 align-items-center">
+						<form class="row g-0 align-items-center px-1 px-md-0">
 						  	<div class="col-1">
 						    	<i class="col-auto fs-5 lh-lg fa-solid fa-magnifying-glass"></i>
 						  	</div>
@@ -59,9 +59,9 @@
 			</div>
 		</div>
 
-		<nav class="d-none d-md-block navbar navbar-expand-lg border-top">
-		  	<div class="container">
-		      <ul class="navbar-nav justify-content-center">
+		<nav class="navbar navbar-expand-lg border-top">
+		  	<div class="container justify-content-center">
+		      <ul class="navbar-nav">
 		        <li class="nav-item">
 		          <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
 		        </li>

@@ -7,6 +7,23 @@ a{
 	color: black;
 }
 
-.nav-mobile{
-	display: block;
+@media (max-width: 720px){
+	.navbar{
+		display: none;
+	}
+
+	.mobile{
+		position: absolute;
+		display: block;
+		z-index: 1;
+		top: 0;
+		background-color: white;
+		height: 100%;
+		width: 40%;
+		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	}
+
+	.mobile ul{
+		margin-top: 50%;
+	}
 }
