@@ -24,9 +24,9 @@
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 	<body>
-		<div class="bg-light text-center d-none d-md-block">
+		<section class="bg-light text-center d-none d-md-block">
 			<p class="py-2 border-bottom">Anda Ingin Memulai Berjualan Di TokoOnline? Daftar Menjadi Mitra Kami Di <a href="" class="text-danger fw-bold">Sini</a></p>
-		</div>
+		</section>
 
 		<div class="nav-top py-md-5 py-3">
 			<div class="container">
@@ -61,16 +61,16 @@
 		  	<div class="container justify-content-center">
 		      <ul class="navbar-nav">
 		        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-		          <a class="nav-link" aria-current="page" href="/">Home</a>
+		          <a class="nav-link" aria-current="page" href="/">Beranda</a>
 		        </li>
 		        <li class="nav-item {{ Request::is('product') ? 'active' : '' }}">
 		          <a class="nav-link" href="/product">Product</a>
 		        </li>
-		        <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
-		          <a class="nav-link" href="#">About</a>
+		        <li class="nav-item {{ Request::is('tentang') ? 'active' : '' }}">
+		          <a class="nav-link" href="#">Tentang</a>
 		        </li>
-		        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
-		          <a class="nav-link" href="#">Contact</a>
+		        <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}">
+		          <a class="nav-link" href="#">Kontak</a>
 		        </li>
 		      </ul>
 		  	</div>
@@ -89,10 +89,10 @@
 			    			<div class="col-md-4 pb-3 pb-md-0">
 			    				<ul class="pb-3">
 			    					<li><p class="fw-bold">Page TokoOnline</p></li>
-					              	<li><i class="fas fa-chevron-right"></i> <a href="/">Home</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/">Beranda</a></li>
 					              	<li><i class="fas fa-chevron-right"></i> <a href="/product">Product</a></li>
-					              	<li><i class="fas fa-chevron-right"></i> <a href="/about">About</a></li>
-					              	<li><i class="fas fa-chevron-right"></i> <a href="/contact">Contact</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/about">Tentang</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/contact">Kontak</a></li>
 					            </ul>
 
 					            <ul>
