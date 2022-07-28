@@ -24,8 +24,8 @@
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 	<body>
-		<div class="bg-secondary text-center text-white py-2 d-none d-md-block">
-			Anda Ingin Memulai Berjualan Di TokoOnline? Daftar Menjadi Mitra Kami Di <a href="" class="text-primary fw-bold">Sini</a>
+		<div class="bg-light text-center d-none d-md-block">
+			<p class="py-2 border-bottom">Anda Ingin Memulai Berjualan Di TokoOnline? Daftar Menjadi Mitra Kami Di <a href="" class="text-danger fw-bold">Sini</a></p>
 		</div>
 
 		<div class="nav-top py-md-5 py-3">
@@ -45,12 +45,10 @@
 						<h3>Toko <strong>Online</strong></h3>
 					</div>
 					<div class="col-6 col-md-4 order-3 order-md-3 text-end text-dark">
-						<a class="px-1 fs-5" href=""><i class="fas fa-circle-user"></i></a>
-						<a class="px-1 fs-5" href="">
+						<a class="px-1 fs-5" href="/user"><i class="fas fa-circle-user"></i></a>
+						<a class="px-1 fs-5" href="/cart">
 							<i class="fas fa-cart-shopping position-relative">
-								<span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-								    <span class="visually-hidden">New alerts</span>
-								</span>
+								<span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
 							</i>
 						</a>
 						<i class="nav-mobile fas fa-bars px-3 d-md-none fs-5"></i>
@@ -62,28 +60,76 @@
 		<nav class="navbar navbar-expand-lg border-top">
 		  	<div class="container justify-content-center">
 		      <ul class="navbar-nav">
-		        <li class="nav-item">
-		          <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
+		        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+		          <a class="nav-link" aria-current="page" href="/">Home</a>
 		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link text-dark" href="#">Product</a>
+		        <li class="nav-item {{ Request::is('product') ? 'active' : '' }}">
+		          <a class="nav-link" href="/product">Product</a>
 		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link text-dark" href="#">About</a>
+		        <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
+		          <a class="nav-link" href="#">About</a>
 		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link text-dark" href="#">Contact</a>
+		        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
+		          <a class="nav-link" href="#">Contact</a>
 		        </li>
 		      </ul>
 		  	</div>
 		</nav>
 
-		<div class="container-fluid">
+		<div>
 	    	@yield('container')
 	    </div>
 
-	    <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+	    <footer class="py-5 bg-light border-top">
+	    	<div class="container">
+		    	<div class="row">
+		    		<div class="col-md-8">
+
+		    			<div class="row">	
+			    			<div class="col-md-4 pb-3 pb-md-0">
+			    				<ul class="pb-3">
+			    					<li><p class="fw-bold">Page TokoOnline</p></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/">Home</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/product">Product</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/about">About</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/contact">Contact</a></li>
+					            </ul>
+
+					            <ul>
+			    					<li><p class="fw-bold">Masuk Akun</p></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/user">User</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="/mitra">Mitra</a></li>
+					            </ul>
+				    		</div>
+			    			<div class="col-md-4">
+			    				<ul class="pb-3">
+			    					<li><p class="fw-bold">Bantuan & Panduan</p></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="#">TokoOnline Care</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="#">Syarat & Ketentuan</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="#">Kebijakan Privasi</a></li>
+					              	<li><i class="fas fa-chevron-right"></i> <a href="#">Keamanan</a></li>
+					            </ul>
+			    			</div>
+			    			<div class="col-md-4 pb-5">
+			    				<ul>
+			    					<li><p class="fw-bold">Social Media</p></li>
+					              	<a href=""><i class="fs-5 mx-1 fa-brands fa-facebook"></i></a>
+					              	<a href=""><i class="fs-5 mx-1 fa-brands fa-twitter"></i></a>
+					              	<a href=""><i class="fs-5 mx-1 fa-brands fa-instagram"></i></a>
+					              	<a href=""><i class="fs-5 mx-1 fa-brands fa-tiktok"></i></a>
+					            </ul>
+			    			</div>
+		    			</div>
+
+		    		</div>	    		
+		    		<div class="col-md-4">
+		    			<div class="px-5 m">
+		    				<img src="/img/logo.png" class="img-fluid">
+		    			</div>
+		    			<p class="text-center mt-4 fw-bold">&copy; Aryo - TokoOnline</p>
+		    		</div>
+		    	</div>
+	    	</div>
         </footer>
 
 		<!-- Vendor JS -->
