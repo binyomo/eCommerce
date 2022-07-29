@@ -28,55 +28,58 @@
 			<p class="py-2 border-bottom">Anda Ingin Memulai Berjualan Di TokoOnline? Daftar Menjadi Mitra Kami Di <a href="" class="text-danger fw-bold">Sini</a></p>
 		</section>
 
-		<div class="nav-top py-md-5 py-3">
-			<div class="container">
-				<div class="row align-content-center">
-					<div class="col-6 col-md-4 order-2 order-md-1">
-						<form class="row g-0 align-items-center px-1 px-md-0">
-						  	<div class="col-1">
-						    	<i class="col-auto fs-5 lh-lg fa-solid fa-magnifying-glass"></i>
-						  	</div>
-						  	<div class="col-11">
-						    	<input class="col-auto border-0 form-control" type="search" placeholder="Search" aria-label="Search">
-							</div>
-						</form>
-					</div>
-					<div class="col-12 col-md-4 order-1 order-md-2 text-center py-md-0 py-2">
-						<h3>Toko <strong>Online</strong></h3>
-					</div>
-					<div class="col-6 col-md-4 order-3 order-md-3 text-end text-dark">
-						<a class="px-1 fs-5" href="/user"><i class="fas fa-circle-user"></i></a>
-						<a class="px-1 fs-5" href="/cart">
-							<i class="fas fa-cart-shopping position-relative">
-								<span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
-							</i>
-						</a>
-						<i class="nav-mobile fas fa-bars px-3 d-md-none fs-5"></i>
+		<section id="header" class="header">
+			<div class="nav-top py-md-5 py-3">
+				<div class="container">
+					<div class="row align-content-center">
+						<div class="col-6 col-md-4 order-2 order-md-1">
+							<form class="row g-0 align-items-center px-1 px-md-0">
+							  	<div class="col-1">
+							    	<i class="col-auto fs-5 lh-lg fa-solid fa-magnifying-glass"></i>
+							  	</div>
+							  	<div class="col-11">
+							    	<input class="col-auto border-0 form-control" type="search" placeholder="Search" aria-label="Search">
+								</div>
+							</form>
+						</div>
+						<div class="col-12 col-md-4 order-1 order-md-2 text-center py-md-0 py-2">
+							<h3>Toko <strong>Online</strong></h3>
+						</div>
+						<div class="col-6 col-md-4 order-3 order-md-3 text-end text-dark">
+							<a class="px-1 fs-5" href="/user"><i class="fas fa-circle-user"></i></a>
+							<a class="px-1 fs-5" href="/cart">
+								<i class="fas fa-cart-shopping position-relative">
+									<span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+								</i>
+							</a>
+							<i class="nav-mobile fas fa-bars px-3 d-md-none fs-5"></i>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<nav class="navbar navbar-expand-lg border-top">
-		  	<div class="container justify-content-center">
-		      <ul class="navbar-nav">
-		        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-		          <a class="nav-link" aria-current="page" href="/">Beranda</a>
-		        </li>
-		        <li class="nav-item {{ Request::is('product') ? 'active' : '' }}">
-		          <a class="nav-link" href="/product">Product</a>
-		        </li>
-		        <li class="nav-item {{ Request::is('tentang') ? 'active' : '' }}">
-		          <a class="nav-link" href="#">Tentang</a>
-		        </li>
-		        <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}">
-		          <a class="nav-link" href="#">Kontak</a>
-		        </li>
-		      </ul>
-		  	</div>
-		</nav>
+			<nav class="navbar navbar-expand-lg border-top">
+			  	<div class="container justify-content-center">
+			      <ul class="navbar-nav">
+			        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+			          <a class="nav-link" aria-current="page" href="/">Beranda</a>
+			        </li>
+			        <li class="nav-item {{ Request::is('product*') ? 'active' : '' }}">
+			          <a class="nav-link" href="/product">Product</a>
+			        </li>
+			        <li class="nav-item {{ Request::is('tentang') ? 'active' : '' }}">
+			          <a class="nav-link" href="#">Tentang</a>
+			        </li>
+			        <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}">
+			          <a class="nav-link" href="#">Kontak</a>
+			        </li>
+			      </ul>
+			  	</div>
+			</nav>
+		</section>
 
-		<div>
+		<div class="content">
+			<div class="navbar-gap"></div>
 	    	@yield('container')
 	    </div>
 
